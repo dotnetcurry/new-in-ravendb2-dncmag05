@@ -48,13 +48,13 @@ namespace RavenDBArticle
         /// <param name="documentStore"></param>
         private static void DoBulkInsert(DocumentStore documentStore)
         {
-            using (var bulkInsert = documentStore.BulkInsert())
+            using (BulkInsertOperation bulkInsert = documentStore.BulkInsert())
             {
                 for (int i = 0; i < 1000; i++)
                 {
                     bulkInsert.Store(new Album
                         {
-                            Title = "Title #" + i, 
+                            Title = "Title #" + i,
                             Price = 5.99
                         });
                 }
